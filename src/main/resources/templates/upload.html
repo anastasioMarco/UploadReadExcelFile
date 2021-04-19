@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<div class="custom-file">
+    <form id="upload-form" enctype="multipart/form-data">
+        <input class="custom-file-input" id="file" name="file" type="file"
+               accept="application/vnd.ms-excel,
+                               application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+               onchange="onUpload();">
+    </form>
+</div>
+
+<span id="showData"></span>
+
+</body>
+</html>
+
+<script>
+
+    function onUpload() {
+
+        event.preventDefault();
+
+        "use strict";
+
+        var fileInput = document.getElementById('file');
+        var file = fileInput.files[0];
+        var formData = new FormData();
+        formData.append('file',file);
+
+		$.ajax({
+            type: "post",
+            url: '/onUpload',
+            enctype: 'multipart/form-data',
+    		contentType: false,
+            data: formData,
+            processData: false,
+            cache: false,
+            timeout: 600000,
+            success: function(data) {
+                document.getElementById("showData").innerHTML = data;
+            },
+            error: function() {
+                console.log("error");
+            }
+        });
+    }
+
+</script>
