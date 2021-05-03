@@ -1,5 +1,7 @@
 package it.uploadfile.upload.controller;
 
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -34,42 +36,31 @@ public class UploadController {
 
 			InputStream fileInputStream = new BufferedInputStream(file.getInputStream());
 
+			DataFormatter dataFormatter = new DataFormatter();
+
 			XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
-			int columnNumber = -1;
-			int sheetNumber = -1;
-			int rowNumber = -1;
 
 			int numberOfSheets = workbook.getNumberOfSheets();
-			for (int n = 0; n < numberOfSheets;n++){
+			for (int n = 0; n < numberOfSheets;n++){    //per ogni sheet
 				XSSFSheet sheetAt = workbook.getSheetAt(n);
 				int numberOfColumns = sheetAt.getRow(0).getLastCellNum();
 				int numberOfRows = sheetAt.getLastRowNum();
-				for (int c = 0; c < numberOfColumns; c++){
-					for (int r = 0; r < numberOfRows; r++){
+				for (int r = 0; r <= numberOfRows; r++){  //per ogni riga
+					for (int c = 0; c < numberOfColumns; c++) { //per ogni colonna
 						XSSFCell cell = sheetAt.getRow(r).getCell(c);
-						String stringCellValue = cell.getStringCellValue();
-						if (stringCellValue.equals("Email")) {
-							columnNumber = c;
-							rowNumber = r+1;
-							sheetNumber = n;
-							break;
-						}
+
+						sb.append(dataFormatter.formatCellValue(cell));
+						sb.append("; ");
+
 					}
-				}
-			}
-			XSSFSheet sheetFound = workbook.getSheetAt(sheetNumber);
-			int row = sheetFound.getLastRowNum();
-			for (int i = rowNumber; i <= row; i++){
-				sb.append(sheetFound.getRow(i).getCell(columnNumber).getStringCellValue());
-				if (i < row) {
-					sb.append("; ");
+					sb.append("<br>");
 				}
 			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "Dati caricati: " + sb.toString();
+		return "Dati caricati:" + "<br>" + sb;
 
 	}
 }
