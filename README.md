@@ -7,7 +7,7 @@
 * Apache POI
 * IntelliJ IDEA
 
-Creare una base per il progetto andando su https://start.spring.io/
+Creare una base per il progetto andando su <a href="https://start.spring.io/"></a>
 
 Impostare il progetto come più si preferisce e far generare il progetto. Io ho utilizzato le seguenti impostazioni:
 
