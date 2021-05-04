@@ -3,6 +3,11 @@
 
 @import "{{ site.theme }}";
 
+body {
+  width: 1000px;
+  margin: auto;
+}
+
 .main-content {
   width: 10%;
 }
