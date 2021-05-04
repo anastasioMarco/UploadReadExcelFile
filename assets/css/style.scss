@@ -3,9 +3,8 @@
 
 @import "{{ site.theme }}";
 
-body {
-  width: 1000px;
-  margin: auto;
+body .main-container {
+max-width: 1500px;
 }
 
 .main-content {
