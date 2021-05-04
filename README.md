@@ -7,11 +7,11 @@
 * Apache POI
 * IntelliJ IDEA
 
-Creare una base per il progetto andando su <a href="https://start.spring.io/"></a>
+Creare una base per il progetto andando su [Spring Inizializr](https://start.spring.io/)
 
 Impostare il progetto come più si preferisce e far generare il progetto. Io ho utilizzato le seguenti impostazioni:
 
-![Alt text](/src/main/resources/images/spring_1.png "Optional Title")
+[Alt text](/src/main/resources/images/spring_1.png "Optional Title")
 
 Una volta finito il download del progetto base basterà estrarlo e aprirlo con un IDE come IntelliJ IDEA. La struttura del progetto sarà in questo modo:
 
