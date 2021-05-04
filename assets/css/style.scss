@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
+.main-content {
+  width: 100%;
+}
+
 .inner {
   max-width: 100%;
 }
