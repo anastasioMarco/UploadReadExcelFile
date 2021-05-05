@@ -12,12 +12,10 @@ Creare una base per il progetto andando su <a href="https://start.spring.io/"></
 Impostare il progetto come più si preferisce e far generare il progetto. Io ho utilizzato le seguenti impostazioni:
 
 ![Alt text](/src/main/resources/images/spring_1.png "Optional Title")
+
 ![Alt text](/src/main/resources/images/spring_2.png "Optional Title")
 
 Una volta finito il download del progetto base basterà estrarlo e aprirlo con un IDE come IntelliJ IDEA.
-La struttura del progetto sarà in questo modo:
-
-[IMG]
 
 Per integrare Apache POI bisognerà aggiungere le dipendenze associate nel file *pom.xml* generato, in questo modo:
 ```xml
@@ -134,3 +132,7 @@ public class UploadController {
   }
 }
 ```
+La struttura del progetto sarà in questo modo:
+
+![Alt text](/src/main/resources/images/project_3.png "Optional Title")
+
