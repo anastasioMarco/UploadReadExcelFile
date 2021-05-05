@@ -1,4 +1,4 @@
-# UploadReadExcelFile
+# Upload e lettura di un file Excel
 
 **Progetto di esempio su come caricare un file Excel e leggerlo, restituendone i dati letti.**
 
@@ -9,9 +9,9 @@
 
 Andando su [Spring Inizializr](https://start.spring.io/) possiamo impostare il progetto in questo modo:
 
-![Alt text](src/main/resources/images/spring_1.png "Optional Title")
+![Alt text](src/main/resources/images/spring_1.png)
 
-![Alt text](src/main/resources/images/spring_2.png "Optional Title")
+![Alt text](src/main/resources/images/spring_2.png)
 
 Una volta finito il download del progetto base basterà estrarlo e aprirlo con un IDE come IntelliJ IDEA.
 
@@ -130,7 +130,22 @@ public class UploadController {
   }
 }
 ```
-La struttura del progetto sarà in questo modo:
+La struttura del progetto avrà un aspetto simile a questo:
 
-![Alt text](src/main/resources/images/project_3.png "Optional Title")
+![Alt text](src/main/resources/images/project_3.png)
+
+Creiamo un file Excel di esempio in modo tale da poter testare il programma:
+
+![Alt text](src/main/resources/images/excel_6.png)
+
+Facciamo partire il progetto e, una volta completata l'inizializzazione andiamo all'indirizzo http://localhost:8080/upload
+che ci mostrerà il pulsante di caricamento del file:
+
+![Alt text](src/main/resources/images/upload_4.png)
+
+
+Scegliamo il file creato e i dati in esso presenti saranno visualizzati nella pagina HTML:
+
+![Alt text](src/main/resources/images/upload_5.png)
+
 
