@@ -7,9 +7,7 @@
 * Apache POI
 * JQuery
 
-Creare una base per il progetto andando su <a href="https://start.spring.io/"></a>
-
-Impostare il progetto come più si preferisce e far generare il progetto. Io ho utilizzato le seguenti impostazioni:
+Andando su [Spring Inizializr](https://start.spring.io/) possiamo impostare il progetto in questo modo:
 
 ![Alt text](src/main/resources/images/spring_1.png "Optional Title")
 
@@ -56,7 +54,7 @@ Nel path ***/resources/templates*** creiamo una pagina HTML (es. *upload.html*) 
 </html>
 ```
 Andiamo adesso a gestire l'upload del file tramite uno script Javascript:
-```jshelllanguage
+```java
 function onUpload() {
 	
   event.preventDefault();
