@@ -134,5 +134,5 @@ public class UploadController {
 ```
 La struttura del progetto sarà in questo modo:
 
-![Alt text](../src/main/resources/images/project_3.png "Optional Title")
+![Alt text](src/main/resources/images/project_3.png "Optional Title")
 
