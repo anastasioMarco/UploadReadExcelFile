@@ -31,15 +31,11 @@ public class UploadController {
 	public String singleFileUpload(@RequestParam(value = "file") MultipartFile file) {
 
 		StringBuilder sb = new StringBuilder();
-
 		try {
 
 			InputStream fileInputStream = new BufferedInputStream(file.getInputStream());
-
 			DataFormatter dataFormatter = new DataFormatter();
-
 			XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
-
 			int numberOfSheets = workbook.getNumberOfSheets();
 			for (int n = 0; n < numberOfSheets;n++){    //per ogni sheet
 				XSSFSheet sheetAt = workbook.getSheetAt(n);
@@ -48,19 +44,15 @@ public class UploadController {
 				for (int r = 0; r <= numberOfRows; r++){  //per ogni riga
 					for (int c = 0; c < numberOfColumns; c++) { //per ogni colonna
 						XSSFCell cell = sheetAt.getRow(r).getCell(c);
-
 						sb.append(dataFormatter.formatCellValue(cell));
 						sb.append("; ");
-
 					}
 					sb.append("<br>");
 				}
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return "Dati caricati:" + "<br>" + sb;
-
 	}
 }
