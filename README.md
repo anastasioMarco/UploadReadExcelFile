@@ -54,7 +54,7 @@ Nel path ***/resources/templates*** creiamo una pagina HTML (es. *upload.html*) 
 </html>
 ```
 Andiamo adesso a gestire l'upload del file tramite uno script Javascript:
-```java
+```javascript
 function onUpload() {
 	
   event.preventDefault();
