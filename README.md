@@ -1,5 +1,4 @@
-<div align="right"><a href="https://start.spring.io/">ENG</a> | ITA</div>
-
+[ENG](README_eng.md) | ITA
 # Upload e lettura di un file Excel
 
 **Progetto di esempio su come caricare un file Excel e leggerlo, restituendone i dati letti.**
