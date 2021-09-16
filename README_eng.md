@@ -1,23 +1,22 @@
 ENG | [ITA](README.md)
-# Upload e lettura di un file Excel
+# Uploading and reading an Excel File
 
-
-**Progetto di esempio su come caricare un file Excel e leggerlo, restituendone i dati letti.**
+**Example projects about how to upload an Excel file and read it, displaying the data within**
 
 * Spring Boot
 * Maven
 * Apache POI
 * JQuery
 
-Andando su [Spring Inizializr](https://start.spring.io/) possiamo impostare il progetto in questo modo:
+Going on [Spring Inizializr](https://start.spring.io/) we can setup the project in this way:
 
 ![Alt text](src/main/resources/images/spring_1.png)
 
 ![Alt text](src/main/resources/images/spring_2.png)
 
-Una volta finito il download del progetto base basterà estrarlo e aprirlo con un IDE come IntelliJ IDEA.
+Once the download is finished we have to extract it and open it with any IDE like IntelliJ IDEA.
 
-Per integrare Apache POI bisognerà aggiungere le dipendenze associate nel file *pom.xml* generato, in questo modo:
+To integrate Apache POI we need to add its dependencies in the *pom.xml* file, like this:
 ```xml
 <dependency>
   <groupId>org.apache.poi</groupId>
@@ -30,7 +29,7 @@ Per integrare Apache POI bisognerà aggiungere le dipendenze associate nel file 
   <version>4.1.2</version>
 </dependency>
 ```
-Nel path ***/resources/templates*** creiamo una pagina HTML (es. *upload.html*) contenente il pulsante per l'upload del file in formato Excel e la lettura dei dati:
+In the path ***/resources/templates*** let's create an HTML page (like *upload.html*) containing the upload file button and the field that will show us the uploaded data:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +54,7 @@ Nel path ***/resources/templates*** creiamo una pagina HTML (es. *upload.html*) 
 </body>
 </html>
 ```
-Andiamo adesso a gestire l'upload del file tramite uno script Javascript:
+Let's handle the upload part with a Javascript code:
 ```javascript
 function onUpload() {
 	
@@ -85,7 +84,7 @@ function onUpload() {
   });
 }
 ```
-In questo modo avremo una semplice pagina con un pulsante e la possibilità di caricare un file. Andiamo ora a creare una classe Java contenente il controller per gestire il file caricato.
+In this way we will have a simple page containing a button and the ability to upload a file. Let's now create a Java class containing a controller that will handle the uploaded file:
 
 ```java
 @Controller
@@ -112,12 +111,12 @@ public class UploadController {
       DataFormatter dataFormatter = new DataFormatter();
       XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
       int numberOfSheets = workbook.getNumberOfSheets();
-      for (int n = 0; n < numberOfSheets;n++){    //per ogni sheet
+      for (int n = 0; n < numberOfSheets;n++){    //for every sheet sheet
           XSSFSheet sheetAt = workbook.getSheetAt(n);
           int numberOfColumns = sheetAt.getRow(0).getLastCellNum();
           int numberOfRows = sheetAt.getLastRowNum();
-          for (int r = 0; r <= numberOfRows; r++){  //per ogni riga
-              for (int c = 0; c < numberOfColumns; c++) { //per ogni colonna
+          for (int r = 0; r <= numberOfRows; r++){  //for every row
+              for (int c = 0; c < numberOfColumns; c++) { //for every column
                   XSSFCell cell = sheetAt.getRow(r).getCell(c);
                   sb.append(dataFormatter.formatCellValue(cell));
                   sb.append("; ");
@@ -132,21 +131,19 @@ public class UploadController {
   }
 }
 ```
-La struttura del progetto avrà un aspetto simile a questo:
+The project structure will have a similar aspect:
 
 ![Alt text](src/main/resources/images/project_3.png)
 
-Creiamo un file Excel di esempio in modo tale da poter testare il programma:
+Let's create now an Excel file with some data to test our program:
 
 ![Alt text](src/main/resources/images/excel_6.png)
 
-Facciamo partire il progetto e, una volta completata l'inizializzazione andiamo all'indirizzo http://localhost:8080/upload
-che ci mostrerà il pulsante di caricamento del file:
+Let's run the project. Once the initialization is terminated let's go to the link http://localhost:8080/upload that will show us the upload button:
 
 ![Alt text](src/main/resources/images/upload_4.png)
 
-
-Scegliamo il file creato e i dati in esso presenti saranno visualizzati nella pagina HTML:
+Select the file created earlier and the data within the file will be displayed inside the HTML page:
 
 ![Alt text](src/main/resources/images/upload_5.png)
 
