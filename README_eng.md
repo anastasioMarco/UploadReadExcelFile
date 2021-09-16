@@ -1,8 +1,6 @@
-<div align="right">ENG | <a href="https://anastasiomarco.github.io/UploadReadExcelFile/">ITA</a></div>
-
+ENG | [ITA](README.md)
 # Upload e lettura di un file Excel
 
-[readme 2](README_eng.md)
 
 **Progetto di esempio su come caricare un file Excel e leggerlo, restituendone i dati letti.**
 
